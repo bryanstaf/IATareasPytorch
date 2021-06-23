@@ -121,7 +121,7 @@ def inv(x):
 def inv_back(a, b):
     return -(1.0 / a ** 2) * b
 
-
+##############################################################
 ## Task 0.3
 ## Higher-order functions.
 
@@ -141,8 +141,16 @@ def map(fn):
     Returns:
         function : a function that takes a list and applies `fn` to each element
     """
+    
+    def 	mod(lista1):
+    	lista2= []
+    	for cont, val in enumerate(lista1):
+    		lista2.append(fn(val))
+    	return lista2
+    return mod
+    
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError('Need to implement for Task 0.3')
+    #raise NotImplementedError('Need to implement for Task 0.3')
 
 
 def negList(ls):
@@ -166,8 +174,17 @@ def zipWith(fn):
         applying fn(x, y) one each pair of elements.
 
     """
+    
+    def mod(l1, l2):
+        new_l = []
+        for cont, val in enumerate(my_list1):
+            new_l.append(fn(l1[cont], l2[cont]))
+        return mod
+
+    return apply
+    
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError('Need to implement for Task 0.3')
+    #raise NotImplementedError('Need to implement for Task 0.3')
 
 
 def addLists(ls1, ls2):
@@ -192,21 +209,44 @@ def reduce(fn, start):
         fn(x_1, x_0)))`
 
     """
+    
+    def mod(l1):
+        new_l = list(l1).copy()
+
+        if len(new_l) == 0:
+            return start
+        val = new_l.pop()
+        return fn(val, apply(new_l))
+
+        # if(len(my_list) == 0):
+        #     return(start)
+        # else:
+        #     while(len(my_list) != 0):
+
+    return mod
+
+    
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError('Need to implement for Task 0.3')
+    #raise NotImplementedError('Need to implement for Task 0.3')
 
 
 def sum(ls):
     """
     Sum up a list using :func:`reduce` and :func:`add`.
     """
+    my_fn = reduce(add, 0)
+    return my_fn(ls)
+
+    
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError('Need to implement for Task 0.3')
+    #raise NotImplementedError('Need to implement for Task 0.3')
 
 
 def prod(ls):
     """
     Product of a list using :func:`reduce` and :func:`mul`.
     """
+    my_fn = reduce(mul, 1)
+    return my_fn(ls)
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError('Need to implement for Task 0.3')
+    #raise NotImplementedError('Need to implement for Task 0.3')
