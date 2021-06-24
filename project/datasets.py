@@ -104,3 +104,26 @@ class Xor(Graph):
         for x_1, x_2 in self.X:
             y = 1 if ((x_1 < 0.5 and x_2 > 0.5) or (x_1 > 0.5 and x_2 < 0.5)) else 0
             self.y.append(y)
+
+#You can start the visdom visualizatoin server by running python -m visdom.server. 
+#You can disable the visdom visualization by adding --display_id 0  
+  
+from project.datasets import Simple, Split, Xor
+N = 100
+Simple(N, vis=True).graph("initial")          
+            
+'''          
+def classify(pt):
+    "Classify based on x position"
+    if pt[0] > 0.5:
+        return 1.0
+    else:
+        return 0.0
+
+Split(5, vis=True).graph("initial", model=classify)'''
+
+            
+            
+            
+            
+            
